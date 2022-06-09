@@ -1,0 +1,3 @@
+Layer Pairs Export File for PCB: C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc
+LayersSetName=Top_Bot_Plated_Thru_Holes|DrillFile=pv_pwm_heater_v3-plated.txt|DrillLayers=gtl,gbl
+LayersSetName=Top_Bot_NonPlated_Thru_Holes|DrillFile=pv_pwm_heater_v3-nonplated.txt|DrillLayers=gtl,gbl

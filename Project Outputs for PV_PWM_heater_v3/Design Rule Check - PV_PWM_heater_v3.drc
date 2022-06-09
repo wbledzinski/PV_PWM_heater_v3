@@ -1,0 +1,59 @@
+Protel Design System Design Rule Check
+PCB File : C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc
+Date     : 29.04.2022
+Time     : 22:59:43
+
+Processing Rule : Clearance Constraint (Gap=20mil) (InComponent('U1') or InComponent('U2') or InComponent('U3')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=20mil) (All),(All)
+   Violation between Clearance Constraint: (Collision < 10mil) Between Pad RT1-1(2220mil,2475mil) on Multi-Layer And Track (2220mil,2475mil)(2320mil,2475mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 10mil) Between Pad RT1-2(2320mil,2475mil) on Multi-Layer And Track (2220mil,2475mil)(2320mil,2475mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 10mil) Between Track (2220mil,2366mil)(2220mil,2475mil) on Bottom Layer And Track (2220mil,2475mil)(2320mil,2475mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 10mil) Between Track (2220mil,2475mil)(2320mil,2475mil) on Bottom Layer And Track (2320mil,2364.055mil)(2320mil,2475mil) on Bottom Layer 
+Rule Violations :4
+
+Processing Rule : Clearance Constraint (Gap=45mil) (InNet('400VDC') or InNet('o1') or InNet('o2') or InNet('o3')),(All)
+   Violation between Clearance Constraint: (35mil < 45mil) Between Pad J14-1(4625.984mil,2244.095mil) on Multi-Layer And Pad J14-2(4725.984mil,2244.095mil) on Multi-Layer 
+   Violation between Clearance Constraint: (27.5mil < 45mil) Between Pad J14-1(4625.984mil,2244.095mil) on Multi-Layer And Track (4725.984mil,2244.095mil)(4759.088mil,2210.991mil) on Top Layer 
+Rule Violations :2
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+   Violation between Short-Circuit Constraint: Between Pad RT1-1(2220mil,2475mil) on Multi-Layer And Track (2220mil,2475mil)(2320mil,2475mil) on Bottom Layer Location : [X = 2233.733mil][Y = 2475mil]
+   Violation between Short-Circuit Constraint: Between Pad RT1-2(2320mil,2475mil) on Multi-Layer And Track (2220mil,2475mil)(2320mil,2475mil) on Bottom Layer Location : [X = 2306.249mil][Y = 2475mil]
+   Violation between Short-Circuit Constraint: Between Track (2220mil,2366mil)(2220mil,2475mil) on Bottom Layer And Track (2220mil,2475mil)(2320mil,2475mil) on Bottom Layer Location : [X = 2221.233mil][Y = 2475mil]
+   Violation between Short-Circuit Constraint: Between Track (2220mil,2475mil)(2320mil,2475mil) on Bottom Layer And Track (2320mil,2364.055mil)(2320mil,2475mil) on Bottom Layer Location : [X = 2318.767mil][Y = 2475mil]
+Rule Violations :4
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=8mil) (Max=200mil) (Preferred=15mil) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Direct Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (InComponentClass('Power') or InNetClass('Power') or IsVia)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=15mil) (Air Gap=10mil) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=1mil) (Max=100mil) (All)
+   Violation between Hole Size Constraint: (118.11mil > 100mil) Pad Free-0(1550mil,2000mil) on Multi-Layer Actual Hole Size = 118.11mil
+   Violation between Hole Size Constraint: (118.11mil > 100mil) Pad Free-0(1550mil,4800mil) on Multi-Layer Actual Hole Size = 118.11mil
+   Violation between Hole Size Constraint: (118.11mil > 100mil) Pad Free-0(7146.85mil,2000mil) on Multi-Layer Actual Hole Size = 118.11mil
+   Violation between Hole Size Constraint: (118.11mil > 100mil) Pad Free-0(7146.85mil,3790mil) on Multi-Layer Actual Hole Size = 118.11mil
+Rule Violations :4
+
+Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
+   Violation between Hole To Hole Clearance Constraint: (Collision < 10mil) Between Pad C50-1(6560mil,3991.339mil) on Multi-Layer And Pad C5-1(6560mil,3994.252mil) on Multi-Layer Pad/Via Touching Holes
+   Violation between Hole To Hole Clearance Constraint: (Collision < 10mil) Between Pad C50-1(6560mil,3991.339mil) on Multi-Layer And Pad C6-1(6562.677mil,3991.575mil) on Multi-Layer Pad/Via Touching Holes
+   Violation between Hole To Hole Clearance Constraint: (Collision < 10mil) Between Pad C5-1(6560mil,3994.252mil) on Multi-Layer And Pad C6-1(6562.677mil,3991.575mil) on Multi-Layer Pad/Via Touching Holes
+Rule Violations :3
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=10mil) (Disabled)(All),(All)
+Rule Violations :0
+
+
+Violations Detected : 17
+Waived Violations : 0
+Time Elapsed        : 00:00:01

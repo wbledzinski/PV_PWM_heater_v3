@@ -1,0 +1,387 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD21_\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">29.04.2022</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">22:59:43</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc" class="file"><acronym title="C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc">C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">17</td></tr>
+</table>
+</td>
+</table><a name="IDR11HTV242NVKGFYLJEZW5KN0RCZ02EQRN5RGQUIX542RQEH5B0LI"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDS253L5JXAAR3NWYSCDWVGFJZDPED1QCGRKA2KDDUPKLJ3A0AA5HI">Clearance Constraint (Gap=20mil) (InComponent('U1') or InComponent('U2') or InComponent('U3')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDVJBNNJZXUCSKKBKIVUSYBIJL5DN4CNEEE5UVTOMLQZI05NEJ5CGC">Clearance Constraint (Gap=20mil) (All),(All)</a></td>
+<td class="column2">4</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAN3KMETKKMP3PH0BDXKKUE22KEMAE2EP4TGT1KZP2DFMAWLGGPC">Clearance Constraint (Gap=45mil) (InNet('400VDC') or InNet('o1') or InNet('o2') or InNet('o3')),(All)</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID23BNYHCFJN01DSWVOVBLVG0QPGDSLT3OKU0KB1CU2LGEQGLTOHPC">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">4</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDASY40HUV3NHMJW3KIRVAELOC4IIEBHLGQZKUFZBNSGZKPOKTZGQG">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDC2OMWHGWMQG1PDETDXKWKAV4DOHCZMDFUS0EURLYKKMTI5WCZPVP">Width Constraint (Min=8mil) (Max=200mil) (Preferred=15mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDV4GPL1NEPWTQGWXQCBTU2KAGPHP3XZHW3AUJXZJNFKZC3OGN0DAC">Power Plane Connect Rule(Direct Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (InComponentClass('Power') or InNetClass('Power') or IsVia)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDA33IYUHADBVRNB0ZEBYTLO25UNT550LKEUZGU1NR1OH3VB45OXDF">Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=15mil) (Air Gap=10mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDPA45OFNQPLHMCDMWE5PF103LGNMXYQO52GY2NHOOZUNSNSU2ZOHJ">Hole Size Constraint (Min=1mil) (Max=100mil) (All)</a></td>
+<td class="column2">4</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDCONBTL2NZBZ5MZL2RRYNFOXSRPDPNXBKROEG2VK4131D3IQLEF4O">Hole To Hole Clearance (Gap=10mil) (All),(All)</a></td>
+<td class="column2">3</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDGN0PCCFWS44EPYJO3DRVZIH44PWFX0HHJSA002OWAE5DFDTRVJZP">Minimum Solder Mask Sliver (Gap=10mil) (Disabled)(All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">17</td>
+</tr>
+</table><br><a name="IDVJBNNJZXUCSKKBKIVUSYBIJL5DN4CNEEE5UVTOMLQZI05NEJ5CGC"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Clearance Constraint (Gap=20mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2216.167mil|Location2.X=2223.833mil|Location1.Y=2471.167mil|Location2.Y=2478.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2216.167mil|Location2.X=2223.833mil|Location1.Y=2471.167mil|Location2.Y=2478.833mil|Absolute=True">Clearance Constraint: (Collision &lt; 10mil) Between Pad RT1-1(2220mil,2475mil) on Multi-Layer And Track (2220mil,2475mil)(2320mil,2475mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2316.167mil|Location2.X=2323.833mil|Location1.Y=2471.167mil|Location2.Y=2478.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2316.167mil|Location2.X=2323.833mil|Location1.Y=2471.167mil|Location2.Y=2478.833mil|Absolute=True">Clearance Constraint: (Collision &lt; 10mil) Between Pad RT1-2(2320mil,2475mil) on Multi-Layer And Track (2220mil,2475mil)(2320mil,2475mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2216.167mil|Location2.X=2223.833mil|Location1.Y=2471.167mil|Location2.Y=2478.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2216.167mil|Location2.X=2223.833mil|Location1.Y=2471.167mil|Location2.Y=2478.833mil|Absolute=True">Clearance Constraint: (Collision &lt; 10mil) Between Track (2220mil,2366mil)(2220mil,2475mil) on Bottom Layer And Track (2220mil,2475mil)(2320mil,2475mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2316.167mil|Location2.X=2323.833mil|Location1.Y=2471.167mil|Location2.Y=2478.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2316.167mil|Location2.X=2323.833mil|Location1.Y=2471.167mil|Location2.Y=2478.833mil|Absolute=True">Clearance Constraint: (Collision &lt; 10mil) Between Track (2220mil,2475mil)(2320mil,2475mil) on Bottom Layer And Track (2320mil,2364.055mil)(2320mil,2475mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDAN3KMETKKMP3PH0BDXKKUE22KEMAE2EP4TGT1KZP2DFMAWLGGPC"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Clearance Constraint (Gap=45mil) (InNet('400VDC') or InNet('o1') or InNet('o2') or InNet('o3')),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4652.859mil|Location2.X=4699.109mil|Location1.Y=2220.97mil|Location2.Y=2267.22mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4652.859mil|Location2.X=4699.109mil|Location1.Y=2220.97mil|Location2.Y=2267.22mil|Absolute=True">Clearance Constraint: (35mil &lt; 45mil) Between Pad J14-1(4625.984mil,2244.095mil) on Multi-Layer And Pad J14-2(4725.984mil,2244.095mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4649.109mil|Location2.X=4695.359mil|Location1.Y=2220.97mil|Location2.Y=2267.22mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4649.109mil|Location2.X=4695.359mil|Location1.Y=2220.97mil|Location2.Y=2267.22mil|Absolute=True">Clearance Constraint: (27.5mil &lt; 45mil) Between Pad J14-1(4625.984mil,2244.095mil) on Multi-Layer And Track (4725.984mil,2244.095mil)(4759.088mil,2210.991mil) on Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID23BNYHCFJN01DSWVOVBLVG0QPGDSLT3OKU0KB1CU2LGEQGLTOHPC"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Short-Circuit Constraint (Allowed=No) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2212.724mil|Location2.X=2254.742mil|Location1.Y=2453.991mil|Location2.Y=2496.009mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2212.724mil|Location2.X=2254.742mil|Location1.Y=2453.991mil|Location2.Y=2496.009mil|Absolute=True">Short-Circuit Constraint: Between Pad RT1-1(2220mil,2475mil) on Multi-Layer And Track (2220mil,2475mil)(2320mil,2475mil) on Bottom Layer Location : [X = 2233.733mil][Y = 2475mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2285.222mil|Location2.X=2327.275mil|Location1.Y=2453.974mil|Location2.Y=2496.026mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2285.222mil|Location2.X=2327.275mil|Location1.Y=2453.974mil|Location2.Y=2496.026mil|Absolute=True">Short-Circuit Constraint: Between Pad RT1-2(2320mil,2475mil) on Multi-Layer And Track (2220mil,2475mil)(2320mil,2475mil) on Bottom Layer Location : [X = 2306.249mil][Y = 2475mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2211.605mil|Location2.X=2230.862mil|Location1.Y=2465.371mil|Location2.Y=2484.629mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2211.605mil|Location2.X=2230.862mil|Location1.Y=2465.371mil|Location2.Y=2484.629mil|Absolute=True">Short-Circuit Constraint: Between Track (2220mil,2366mil)(2220mil,2475mil) on Bottom Layer And Track (2220mil,2475mil)(2320mil,2475mil) on Bottom Layer Location : [X = 2221.233mil][Y = 2475mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2309.138mil|Location2.X=2328.395mil|Location1.Y=2465.371mil|Location2.Y=2484.629mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2309.138mil|Location2.X=2328.395mil|Location1.Y=2465.371mil|Location2.Y=2484.629mil|Absolute=True">Short-Circuit Constraint: Between Track (2220mil,2475mil)(2320mil,2475mil) on Bottom Layer And Track (2320mil,2364.055mil)(2320mil,2475mil) on Bottom Layer Location : [X = 2318.767mil][Y = 2475mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDPA45OFNQPLHMCDMWE5PF103LGNMXYQO52GY2NHOOZUNSNSU2ZOHJ"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Hole Size Constraint (Min=1mil) (Max=100mil) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1490.32mil|Location2.X=1609.68mil|Location1.Y=1940.32mil|Location2.Y=2059.68mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1490.32mil|Location2.X=1609.68mil|Location1.Y=1940.32mil|Location2.Y=2059.68mil|Absolute=True">Hole Size Constraint: (118.11mil &gt; 100mil) Pad Free-0(1550mil,2000mil) on Multi-Layer Actual Hole Size = 118.11mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1490.32mil|Location2.X=1609.68mil|Location1.Y=4740.32mil|Location2.Y=4859.68mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1490.32mil|Location2.X=1609.68mil|Location1.Y=4740.32mil|Location2.Y=4859.68mil|Absolute=True">Hole Size Constraint: (118.11mil &gt; 100mil) Pad Free-0(1550mil,4800mil) on Multi-Layer Actual Hole Size = 118.11mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7087.17mil|Location2.X=7206.53mil|Location1.Y=1940.32mil|Location2.Y=2059.68mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7087.17mil|Location2.X=7206.53mil|Location1.Y=1940.32mil|Location2.Y=2059.68mil|Absolute=True">Hole Size Constraint: (118.11mil &gt; 100mil) Pad Free-0(7146.85mil,2000mil) on Multi-Layer Actual Hole Size = 118.11mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7087.17mil|Location2.X=7206.53mil|Location1.Y=3730.32mil|Location2.Y=3849.68mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7087.17mil|Location2.X=7206.53mil|Location1.Y=3730.32mil|Location2.Y=3849.68mil|Absolute=True">Hole Size Constraint: (118.11mil &gt; 100mil) Pad Free-0(7146.85mil,3790mil) on Multi-Layer Actual Hole Size = 118.11mil</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDCONBTL2NZBZ5MZL2RRYNFOXSRPDPNXBKROEG2VK4131D3IQLEF4O"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Hole To Hole Clearance (Gap=10mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6556.167mil|Location2.X=6563.833mil|Location1.Y=3990.419mil|Location2.Y=3998.085mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6556.167mil|Location2.X=6563.833mil|Location1.Y=3990.419mil|Location2.Y=3998.085mil|Absolute=True">Hole To Hole Clearance Constraint: (Collision &lt; 10mil) Between Pad C50-1(6560mil,3991.339mil) on Multi-Layer And Pad C5-1(6560mil,3994.252mil) on Multi-Layer Pad/Via Touching Holes</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6558.844mil|Location2.X=6566.511mil|Location1.Y=3987.742mil|Location2.Y=3995.408mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6558.844mil|Location2.X=6566.511mil|Location1.Y=3987.742mil|Location2.Y=3995.408mil|Absolute=True">Hole To Hole Clearance Constraint: (Collision &lt; 10mil) Between Pad C50-1(6560mil,3991.339mil) on Multi-Layer And Pad C6-1(6562.677mil,3991.575mil) on Multi-Layer Pad/Via Touching Holes</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6558.844mil|Location2.X=6566.511mil|Location1.Y=3987.742mil|Location2.Y=3995.408mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Projekty\PV_PWM_heater\PV_PWM_heater_v3\PV_PWM_heater_v3.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6558.844mil|Location2.X=6566.511mil|Location1.Y=3987.742mil|Location2.Y=3995.408mil|Absolute=True">Hole To Hole Clearance Constraint: (Collision &lt; 10mil) Between Pad C5-1(6560mil,3994.252mil) on Multi-Layer And Pad C6-1(6562.677mil,3991.575mil) on Multi-Layer Pad/Via Touching Holes</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
